@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="styles.scss" type="text/css" charset="utf-8">
+    <script type="text/javascript" src="jquery-2.1.4.min.js"></script>
+    <title></title
+  </head>
+  <body>
+      <div class="score">
+        0
+      </div>
+
+      <div class="start-game">
+        <p>
+          asteroids
+        </p>
+
+        <button class="start">
+          start
+        </button>
+      </div>
+
+      <div class="level">
+        1
+      </div>
+
+    <canvas id="game-canvas" class="background"></canvas>
+    <script src="keymaster.js"></script>
+    <script src="utils.js"></script>
+    <script src="movingObject.js"></script>
+    <script src="bullet.js"></script>
+    <script src="asteroid.js"></script>
+    <script src="ship.js"></script>
+    <script src="game.js"></script>
+    <script src="gameView.js"></script>
+    <script>
+        var canvasEl = document.getElementById("game-canvas");
+        canvasEl.height = window.innerHeight;
+        canvasEl.width = window.innerWidth;
+      $("button").on("click", function() {
+        $(".start-game").addClass("in-progress");
+        var gameView = new window.Asteroids.GameView(canvasEl);
+        gameView.start();
+      })
+    </script>
+  </body>
+</html>

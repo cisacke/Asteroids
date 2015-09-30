@@ -1,0 +1,38 @@
+main {
+  position: relative;
+}
+
+.score {
+  width: 100px;
+  height: 50px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: red;
+}
+
+.level {
+  width: 100px;
+  height: 50px;
+  position: absolute;
+  top: 0;
+  right: 0;
+  background-color: blue;
+}
+
+.start-game {
+  position: absolute;
+  top: 30%;
+  left: 30%;
+  width: 400px;
+  height: 500px;
+  background: yellow;
+}
+
+.start-game.in-progress {
+  display: none;
+}
+
+#game-canvas.background {
+  background-image: url("starry_sky.jpg");
+}
