@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="styles.css" type="text/css" charset="utf-8">
+    <link href='https://fonts.googleapis.com/css?family=VT323'
+          rel='stylesheet'
+          type='text/css'>
+    <script type="text/javascript" src="jquery-2.1.4.min.js"></script>
+    <title></title
+  </head>
+  <body>
+    <div class="score-wrapper group">
+      <div> SCORE: </div>
+      <div class="score">
+        0
+      </div>
+    </div>
+
+      <div class="start-game">
+        <p>
+          ASTEROIDS
+        </p>
+
+        <button class="start">
+          START
+        </button>
+      </div>
+
+      <div class="level-wrapper group">
+        <div>LEVEL: </div>
+        <div class="level">
+          1
+        </div>
+      </div>
+
+    <canvas id="game-canvas" class="background"></canvas>
+    <script src="keymaster.js"></script>
+    <script src="utils.js"></script>
+    <script src="movingObject.js"></script>
+    <script src="bullet.js"></script>
+    <script src="asteroid.js"></script>
+    <script src="ship.js"></script>
+    <script src="game.js"></script>
+    <script src="gameView.js"></script>
+    <script>
+        var canvasEl = document.getElementById("game-canvas");
+        canvasEl.height = window.innerHeight;
+        canvasEl.width = window.innerWidth;
+      $(".start").on("click", function() {
+        $(".start-game").addClass("in-progress");
+        var gameView = new window.Asteroids.GameView(canvasEl);
+        var image = new Image();
+        image.src = "asteroid1.png"
+        image.onload = function() {
+          gameView.start();
+        }
+      })
+    </script>
+  </body>
+</html>
