@@ -37,7 +37,21 @@ The left and right keys rotate the ship anti-clockwise and clockwise respectivel
 
 ## Firing Bullets
 
-Bullets are fired from the ship, travelling in the same direction as the ship but at a constant speed. Unit vectors are calculated in otder to achieve this
+Bullets are fired from the ship: they travel in the same direction as the ship, but at a constant speed. Unit vectors are calculated in order to achieve this:
+
+```
+  Util.unitLength = function(vel) {
+    var x = vel[0];
+    var y = vel[1];
+    return(Math.sqrt( (x*x) + (y*y) ));
+  };
+
+  Util.unitVec = function(vel, length) {
+    var x = vel[0];
+    var y = vel[1];
+    return ([(x/length), (y/length)]);
+  };
+  ```
 
 ## CSS Sprites
 
