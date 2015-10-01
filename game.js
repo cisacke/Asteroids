@@ -22,19 +22,11 @@
     this.allObjects().forEach(function(object) {
       object.game.remove(object);
     });
-    // clearInterval(this.interval);
 
     $(".start-game").removeClass("in-progress");
-    $("button").on("click", function() {
-      var canvasEl = document.getElementById("game-canvas");
-      canvasEl.height = window.innerHeight;
-      canvasEl.width = window.innerWidth;
-      $(".start-game").addClass("in-progress");
-      var gameView = new window.Asteroids.GameView(canvasEl);
-      // this.game = new window.Asteroids.Game(canvasEl, {gameView: this});
-      gameView.start();
-    }.bind(this));
-    // debugger
+    $("button").removeClass("start");
+    $("button").addClass("end");
+    $("button").text("THANKS FOR PLAYING!");
   };
 
   Game.prototype.add = function (obj) {

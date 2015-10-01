@@ -1,0 +1,98 @@
+main {
+  position: relative;
+}
+
+body, html, div, p {
+  padding: 0;
+  border: 0;
+  margin: 0;
+
+  text-decoration: inherit;
+  text-align: inherit;
+  color: inherit;
+}
+
+.group {
+  content: "";
+  clear: both;
+  display: block;
+}
+
+.score-wrapper div {
+  font-family: 'VT323', sans-serif;
+  float: left;
+  font-size: 25px;
+}
+
+.score-wrapper {
+  width: 110px;
+  height: 30px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  border: 3px solid white;
+  background: black;
+  color: white;
+  padding: 5px;
+}
+
+.level-wrapper {
+  width: 90px;
+  height: 30px;
+  position: absolute;
+  top: 0;
+  right: 0;
+  border: 3px solid white;
+  background: black;
+  color: white;
+  padding: 5px;
+}
+
+.level-wrapper div {
+  font-family: 'VT323', sans-serif;
+  font-size: 25px;
+  float: left;
+}
+
+.start-game {
+  font-family: 'VT323', sans-serif;
+  font-size: 60px;
+  color: white;
+  text-align: center;
+  margin-top: 10px;
+  position: absolute;
+  top: 30%;
+  left: 40%;
+  width: 300px;
+  height: 200px;
+  background: black;
+  border: 10px solid white;
+}
+
+.start {
+  font-family: 'VT323', sans-serif;
+  font-size: 30px;
+  width: 100px;
+  height: 45px;
+  border: 5px solid gray;
+  // line-height: 50px;
+  background: white;
+}
+
+.end {
+  font-family: 'VT323', sans-serif;
+  font-size: 30px;
+  width: 150px;
+  height: 90px;
+  border: 5px solid gray;
+  // line-height: 50px;
+  background: white;
+}
+
+.start-game.in-progress {
+  display: none;
+}
+
+#game-canvas.background {
+  background-image: url("starry_sky.jpg");
+}

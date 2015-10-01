@@ -3,26 +3,35 @@
   <head>
     <meta charset="utf-8">
     <link rel="stylesheet" href="styles.scss" type="text/css" charset="utf-8">
+    <link href='https://fonts.googleapis.com/css?family=VT323'
+          rel='stylesheet'
+          type='text/css'>
     <script type="text/javascript" src="jquery-2.1.4.min.js"></script>
     <title></title
   </head>
   <body>
+    <div class="score-wrapper group">
+      <div> SCORE: </div>
       <div class="score">
         0
       </div>
+    </div>
 
       <div class="start-game">
         <p>
-          asteroids
+          ASTEROIDS
         </p>
 
         <button class="start">
-          start
+          START
         </button>
       </div>
 
-      <div class="level">
-        1
+      <div class="level-wrapper group">
+        <div>LEVEL: </div>
+        <div class="level">
+          1
+        </div>
       </div>
 
     <canvas id="game-canvas" class="background"></canvas>
@@ -38,7 +47,7 @@
         var canvasEl = document.getElementById("game-canvas");
         canvasEl.height = window.innerHeight;
         canvasEl.width = window.innerWidth;
-      $("button").on("click", function() {
+      $(".start").on("click", function() {
         $(".start-game").addClass("in-progress");
         var gameView = new window.Asteroids.GameView(canvasEl);
         gameView.start();
