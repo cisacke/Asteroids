@@ -19,14 +19,7 @@
   };
 
   Game.prototype.end = function() {
-    this.allObjects().forEach(function(object) {
-      object.game.remove(object);
-    });
-
-    $(".start-game").removeClass("in-progress");
-    $("button").removeClass("start");
-    $("button").addClass("end");
-    $("button").text("THANKS FOR PLAYING!");
+    window.location.reload();
   };
 
   Game.prototype.add = function (obj) {

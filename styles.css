@@ -54,7 +54,7 @@ body, html, div, p {
   float: left;
 }
 
-.start-game {
+.start-game, .start-game-again {
   font-family: 'VT323', sans-serif;
   font-size: 60px;
   color: white;
@@ -90,6 +90,10 @@ body, html, div, p {
 }
 
 .start-game.in-progress {
+  display: none;
+}
+
+.start-game-again {
   display: none;
 }
 

@@ -50,7 +50,11 @@
       $(".start").on("click", function() {
         $(".start-game").addClass("in-progress");
         var gameView = new window.Asteroids.GameView(canvasEl);
-        gameView.start();
+        var image = new Image();
+        image.src = "asteroid1.png"
+        image.onload = function() {
+          gameView.start();
+        }
       })
     </script>
   </body>
