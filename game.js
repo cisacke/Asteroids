@@ -12,6 +12,7 @@
     this.bullets = [];
     this.level = 1;
     this.lives = 5;
+    this.thrusts = 0;
 
     this.ship = new window.Asteroids.Ship({ "game": this,
                                             "pos_x": this.randomPos()});

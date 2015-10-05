@@ -87,6 +87,7 @@
   };
 
   Ship.prototype.relocate = function () {
+    this.game.thrusts = 0;
     this.pos_x = this.game.randomPos();
     this.pos_y = [this.pos_x[0] + 10, this.pos_x[1] + 25];
     this.pos_z = [this.pos_x[0] - 10, this.pos_x[1] + 25];
@@ -97,7 +98,6 @@
   };
 
   Ship.prototype.power = function (impulse) {
-    // debugger
     var oldVel = this.vel;
 
     if (this.vel[0] < 12 && this.vel[0] > -12) {
@@ -123,15 +123,8 @@
       this.vel[1] = impulse[1] + oldVel[1];
     }
   };
-  //
-  // Ship.prototype.isCollidedWith = function (otherObject) {
-  //   // debugger
-  //   return (window.Asteroids.Util.distance(this, otherObject)) <
-  //         (16 + otherObject.radius);
-  // };
 
   Ship.prototype.rotateRight = function() {
-    // ctx.clearRect(0,0, this.DIM_X, this.DIM_Y);
     var moveToZero = this.moveToZero();
     var rotate = this.rotate(moveToZero, {clockwise: true});
     var moveBack = this.moveBack(rotate);
@@ -142,11 +135,6 @@
     this.updateVel();
     this.center = this.calculateCenter();
     this.pos = this.center;
-    // debugger
-    // move to zero
-    // rotate
-    // move back
-
   };
 
   Ship.prototype.rotateLeft = function() {
@@ -165,7 +153,6 @@
   Ship.prototype.updateVel = function() {
     var vel = [this.pos_x[0] - this.center[0], this.pos_x[1] - this.center[1]];
     var oldLength = Asteroids.Util.Ulength(this.vel);
-    // debugger
     var length = Asteroids.Util.Ulength(vel);
     var unitMag = Asteroids.Util.unitMag(vel, length);
     var oldVel = this.vel;
@@ -180,7 +167,6 @@
   };
 
   Ship.prototype.rotate = function(moveToZero, options) {
-    // debugger
     var x = moveToZero[0];
     var y = moveToZero[1];
     var z = moveToZero[2];
@@ -202,16 +188,22 @@
   };
 
   Ship.prototype.fireBullet = function () {
-    // console.log(this.vel);
-    var shipLength = window.Asteroids.Util.Ulength(this.vel);
-    // console.log("ship length-->", shipLength);
-    var shipUnitMag = window.Asteroids.Util.unitMag(this.vel, shipLength);
+    var shipLength;
+    var vel;
+    console.log(this.vel);
+    if (this.vel[0] === 0 && this.vel[1] === 0) {
+      vel = [this.pos_x[0] - this.center[0], this.pos_x[1] - this.center[1]];
+      shipLength = window.Asteroids.Util.Ulength(vel);
+    } else {
+      vel = this.vel;
+      shipLength = window.Asteroids.Util.Ulength(vel);
+    }
+    var shipUnitMag = window.Asteroids.Util.unitMag(vel, shipLength);
     var bullet = new window.Asteroids.Bullet ( { "pos": [(this.pos_x[0] + 3), (this.pos_x[1] + 3)],
                                                  "vel": [ (shipUnitMag[0] * 13), (shipUnitMag[1] * 13) ],
                                                  "game": this.game } );
     this.game.add(bullet);
-    // console.log(bullet)
-    // console.log(this.game.bullets)
+    console.log(bullet.vel);
   };
 
 }());
